@@ -5,32 +5,22 @@ namespace AreaCalculation
 {
     public class Triangle : ICloneable
     {
-        private readonly Point _centerPoint;
-        private readonly double _radius;
-
-        public Point CenterPoint
+        private readonly Point _first;
+        private readonly Point _second;
+        private readonly Point _third;        
+                
+        public Triangle(Point first, Point second, Point third)
         {
-            get { return _centerPoint; }
+            _first = first;
+            _second = second;
+            _third = third;
         }
-
-        public Triangle(Point centerPoint, double radius)
-        {
-            _centerPoint = centerPoint;
-            _radius = radius;
-        }
-
+                
         public double CalculateArea()
-        {
-            return _radius * _radius * Math.PI;
+        {          
+            return 0.5 * Math.Abs((_second.X - _first.X) * (_third.Y - _first.Y) - (_third.X - _first.X) * (_second.Y - _first.Y));
         }
-
-        public object Clone()
-        {
-            var cloneCircle = new Triangle(_centerPoint, _radius);
-
-            return cloneCircle;
-        }
-
+                
         public static bool operator ==(Triangle left, Triangle right)
         {
             return left.GetHashCode() == right.GetHashCode();
@@ -48,12 +38,15 @@ namespace AreaCalculation
 
         public override int GetHashCode()
         {
-            return _centerPoint.GetHashCode() ^ _radius.GetHashCode();
+            return _first.GetHashCode() ^ _second.GetHashCode();
         }
-
-        public override string ToString()
+                
+        public object Clone()
         {
-            return (String.Format("CenterPoint: {0}, Radius: {1}", _centerPoint, _radius));
+            var cloneTriangle = new Triangle(_first, _second, _third);
+
+            return cloneTriangle;
         }
+                
     }
 }
