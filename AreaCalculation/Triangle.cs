@@ -47,6 +47,26 @@ namespace AreaCalculation
 
             return cloneTriangle;
         }
-                
+
+        private double CalculatePair(Point first, Point second)
+        {
+            return Math.Sqrt((first.X - second.X) * (first.X - second.X) + (first.Y - second.Y) * (first.Y - second.Y));
+        }
+
+        public bool CheckRightTriangle()
+        {
+
+            double[] triangleSide = new double [3] { CalculatePair(_first, _second), CalculatePair(_first, _third), CalculatePair(_second, _third)};
+
+            Console.WriteLine(triangleSide);
+
+            Array.Sort(triangleSide);
+
+            if (triangleSide[2] * triangleSide[2] == triangleSide[0] * triangleSide[0] + triangleSide[1] * triangleSide[1])
+                return true;
+
+            return false;
+        }
+
     }
 }

@@ -54,5 +54,21 @@ namespace AreaCalculationTests
 
             Assert.True(triangleOne.Equals(triangleTwo));
         }
+
+        [Test]
+        public void GoodCheckTriangleRightTest()
+        {
+            var triangleOne = new Triangle(new Point(0, 0), new Point(0, 3), new Point(4, 0));           
+
+            Assert.True(triangleOne.CheckRightTriangle());
+        }
+
+        [Test]
+        public void BadCheckTriangleRightTest()
+        {
+            var triangleOne = new Triangle(new Point(1, 0), new Point(7, 3), new Point(4, 0));
+
+            Assert.False(triangleOne.CheckRightTriangle());
+        }
     }
 }
