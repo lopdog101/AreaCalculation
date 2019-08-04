@@ -42,8 +42,9 @@ namespace AreaCalculation
 
             Point p = obj is Point ? (Point)obj : new Point();
 
-            if (p == null) return false;
-            //проверяется равенство содержимого
+            if (p == null)
+                return false;
+        
             return ((X == p.X) && (Y == p.Y));
         }
 

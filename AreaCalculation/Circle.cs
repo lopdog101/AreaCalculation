@@ -49,11 +49,6 @@ namespace AreaCalculation
         public override int GetHashCode()
         {
             return _centerPoint.GetHashCode() ^ _radius.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return (String.Format("CenterPoint: {0}, Radius: {1}", _centerPoint, _radius));
-        }
+        }               
     }
 }

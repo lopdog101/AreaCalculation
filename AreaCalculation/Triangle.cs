@@ -38,7 +38,7 @@ namespace AreaCalculation
 
         public override int GetHashCode()
         {
-            return _first.GetHashCode() ^ _second.GetHashCode();
+            return (_first.GetHashCode() * _second.GetHashCode()) ^ _second.GetHashCode();
         }
                 
         public object Clone()

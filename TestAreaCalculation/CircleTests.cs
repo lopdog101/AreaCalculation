@@ -8,13 +8,6 @@ namespace AreaCalculationTests
     [TestFixture]
     public class CircleTests
     {
-        [Test]
-        public void ToStringTest()
-        {
-            var circle = new Circle(new Point(3, 4), 6);
-            var str = circle.ToString();
-            Assert.AreEqual("CenterPoint: X: 3, Y: 4, Radius: 6", str);
-        }
 
         [Test]
         public void GetHashTest()
@@ -39,7 +32,7 @@ namespace AreaCalculationTests
         [Test]
         public void BadEquals()
         {
-            var circleOne = new Square(new Point(3, 7), 8);
+            var circleOne = new Circle(new Point(3, 7), 8);
             var circleTwo = new Circle(new Point(3, 4), 6);
 
             Assert.False(circleOne.Equals(circleTwo));
